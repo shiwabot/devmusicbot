@@ -524,7 +524,7 @@ async def play(_, message: Message):
                     InlineKeyboardButton("📖 Playlist", callback_data="playlist"),
                     InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
                 ],
-                [InlineKeyboardButton(text="Watch On YouTube 🎬", url=f"{url}")],
+                [InlineKeyboardButton(text="music group join 🎬", url="https://t.me/MusicBotEnjoy_group")],
                 [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
             ]
         )
