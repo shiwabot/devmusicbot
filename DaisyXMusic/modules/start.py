@@ -1,4 +1,4 @@
-"""from pyrogram import Client, filters
+from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, CallbackQuery
 
 
@@ -22,14 +22,12 @@ async def start(_, message: Message):
                     )
                 ],
             ]
-        ),
-        disable_web_page_preview=True,
-    )
-
+        ))
+      
 @Client.on_callback_query(filters.regex("^start_cmds$"))
 async def close_admin_callback(_, q: CallbackQuery):
     user_id = q.from_user.id
-    await q.message.edit_text("Here you can find commands to use me.")
+    await q.message.edit_text("Here you can find commands to use me.",
     reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -46,9 +44,7 @@ async def close_admin_callback(_, q: CallbackQuery):
                     )
                 ],
             ]
-        ),
-        disable_web_page_preview=True,
-    )
+        ))
     await q.answer("Help menu opened.", show_alert=True)
     return
   
@@ -73,4 +69,3 @@ async def gstart(_, message: Message):
             ]
         ),
     )
-"""
