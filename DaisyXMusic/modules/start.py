@@ -5,7 +5,8 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, 
 @Client.on_message(filters.command("start") & filters.private & ~filters.channel)
 async def start(_, message: Message):
     await message.reply_text(
-        f"""**Hello, I'm Vc music Player**.\n\n__I can play music in voice chats. Hit /help to know about my commands.__""",
+        f"""**Hello, I'm Vc music Player**.""",
+        """__I can play music in voice chats. Hit /help to know about my commands.__""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -38,7 +39,7 @@ async def close_admin_callback(_, q: CallbackQuery):
                     ),
                     InlineKeyboardButton(
                         "Users", url="https://telegra.ph/Starpaneltop-05-16-2"
-                    )
+                    ),
                 ],
                 [
                     InlineKeyboardButton(
