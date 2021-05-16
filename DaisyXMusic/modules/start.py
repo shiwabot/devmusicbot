@@ -21,6 +21,11 @@ async def start(_, message: Message):
                         "Support", url="https://t.me/AnieRoSupport"
                     )
                 ],
+                [
+                    InlineKeyboardButton(
+                        "Add me to your group.", url="t.me/URLmusicbot?startgroup=true"
+                    )
+                ],
             ]
         ))
       
