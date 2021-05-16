@@ -1,11 +1,11 @@
-from pyrogram import Client, filters
+"""from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, CallbackQuery
 
 
 @Client.on_message(filters.command("start") & filters.private & ~filters.channel)
 async def start(_, message: Message):
     await message.reply_text(
-        f"""**Hello, I'm Vc music Player**. I can play music in voice chats. Hit /help to know about my commands.""",
+        f"**Hello, I'm Vc music Player**. I can play music in voice chats. Hit /help to know about my commands.",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -55,14 +55,14 @@ async def close_admin_callback(_, q: CallbackQuery):
 @Client.on_callback_query(filters.regex("^start_close$"))
 async def close_admin_callback(_, q: CallbackQuery):
     user_id = q.from_user.id
-    await q.message.edit_text("""**Menu closed. Send /start to start again.**""")
+    await q.message.edit_text("**Menu closed. Send /start to start again.**")
     await q.answer("Closed Menu.", show_alert=True)
     return
   
 @Client.on_message(filters.command("start") & ~filters.private & ~filters.channel)
 async def gstart(_, message: Message):
     await message.reply_text(
-        """Hello, I'm Online ^_^""",
+        "Hello, I'm Online ^_^",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -73,3 +73,4 @@ async def gstart(_, message: Message):
             ]
         ),
     )
+"""
