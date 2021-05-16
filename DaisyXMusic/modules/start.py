@@ -25,7 +25,7 @@ async def start(_, message: Message):
         ))
       
 @Client.on_callback_query(filters.regex("^start_cmds$"))
-async def close_admin_callback(_, q: CallbackQuery):
+async def start_callback(_, q: CallbackQuery):
     user_id = q.from_user.id
     await q.message.edit_text("Here you can find commands to use me.",
     reply_markup=InlineKeyboardMarkup(
@@ -49,7 +49,7 @@ async def close_admin_callback(_, q: CallbackQuery):
     return
   
 @Client.on_callback_query(filters.regex("^start_close$"))
-async def close_admin_callback(_, q: CallbackQuery):
+async def close_callback(_, q: CallbackQuery):
     user_id = q.from_user.id
     await q.message.edit_text("**Menu closed. Send /start to start again.**")
     await q.answer("Closed Menu.", show_alert=True)
