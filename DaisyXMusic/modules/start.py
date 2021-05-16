@@ -5,8 +5,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, 
 @Client.on_message(filters.command("start") & filters.private & ~filters.channel)
 async def start(_, message: Message):
     await message.reply_text(
-        f"""**Hello, I'm Vc music Player**.""",
-        """__I can play music in voice chats. Hit /help to know about my commands.__""",
+        f"""**Hello, I'm Vc music Player**. I can play music in voice chats. Hit /help to know about my commands.""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
