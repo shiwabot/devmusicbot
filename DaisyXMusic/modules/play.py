@@ -35,7 +35,6 @@ from DaisyXMusic.config import ARQ_API_KEY
 from DaisyXMusic.config import BOT_NAME as bn
 from DaisyXMusic.config import DURATION_LIMIT
 from DaisyXMusic.config import UPDATES_CHANNEL as updateschannel
-from DaisyXMusic.config import que
 from DaisyXMusic.function.admins import admins as a
 from DaisyXMusic.helpers.admins import get_administrators
 from DaisyXMusic.helpers.channelmusic import get_chat_id
@@ -49,7 +48,7 @@ from DaisyXMusic.services.downloaders import youtube
 
 chat_id = None
 arq = ARQ("https://thearq.tech", ARQ_API_KEY)
-
+que = {}
 
 def cb_admin_check(func: Callable) -> Callable:
     async def decorator(client, cb):
