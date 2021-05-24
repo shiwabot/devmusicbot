@@ -445,7 +445,7 @@ async def play(_, message: Message):
         # lmoa = await client.get_chat_member(chid,wew)
     except:
         await lel.edit(
-            f"<i> @Denvilmusic Userbot not in this chat, Ask admin to send /play command for first time or add {user.first_name} manually</i>"
+            f"<i> @DenvilBackup Userbot not in this chat, Ask admin to send /play command for first time or add {user.first_name} manually</i>"
         )
         return
     message.from_user.id
@@ -728,14 +728,14 @@ async def jiosaavn(client: Client, message_: Message):
                     # print(e)
                     await lel.edit(
                         f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} couldn't join your group due to heavy requests for userbot! Make sure user is not banned in group."
-                        "\n\nOr manually add @Denvilmusic to your Group and try again</b>",
+                        "\n\nOr manually add @DenvilBackup to your Group and try again</b>",
                     )
     try:
         await USER.get_chat(chid)
         # lmoa = await client.get_chat_member(chid,wew)
     except:
         await lel.edit(
-            "<i> @Denvilmusic Userbot not in this chat, Ask admin to send /play command for first time or add assistant manually</i>"
+            "<i> @DenvilBackup Userbot not in this chat, Ask admin to send /play command for first time or add assistant manually</i>"
         )
         return
     requested_by = message_.from_user.first_name
