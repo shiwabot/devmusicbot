@@ -19,7 +19,7 @@ from asyncio.queues import QueueEmpty
 
 from pyrogram import Client, filters
 from pyrogram.types import Message
-
+from DaisyXMusic.config import que
 from DaisyXMusic.function.admins import set
 from DaisyXMusic.helpers.channelmusic import get_chat_id
 from DaisyXMusic.helpers.decorators import authorized_users_only, errors
@@ -108,7 +108,7 @@ async def skip(_, message: Message):
         skip = qeue.pop(0)
     if not qeue:
         return
-    await message.reply_text(f"- Skipped **{skip[0]}**\n- Now Playing **{qeue[0][0]}**")
+    await message.reply_text(f"- Skipped {skip[0]}\n- Now Playing {qeue[0][0]}")
 
 
 @Client.on_message(filters.command("admincache"))

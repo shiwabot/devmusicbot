@@ -1,60 +1,74 @@
-# Daisyxmusic (Telegram bot project )
-# Copyright (C) 2021  Inukaasith
-
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU Affero General Public License as
-# published by the Free Software Foundation, either version 3 of the
-# License, or (at your option) any later version.
-
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU Affero General Public License for more details.
-#
-# You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
-
 from pyrogram import Client, filters
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, CallbackQuery
 
 
 @Client.on_message(filters.command("start") & filters.private & ~filters.channel)
 async def start(_, message: Message):
     await message.reply_text(
-        f"""Hello 👋 there! I can play music in voice chats of Telegeam Groups. I have a lot of cool feature that will amaze you!\n\n🔴 Do you want me to play music in your Telegram groups'voice chats? Please click the \'📜 User Manual 📜\' button below to know how you can use me.\n\n🔴 The Assistant must be in your group to play music in the voice chat of your group.\n\n🔴 More info & commands mentioned in the [User Manual](https://telegra.ph/Daisy-X-04-19)\n\nA project by @TeamDaisyX""",
+        f"**Hello, I'm Vc music Player**. I can play music in voice chats. Hit /help to know about my commands.",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "📜 User Manual 📜", url="https://telegra.ph/Daisy-X-04-19"
+                        "Commands", callback_data="start_cmds"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "👨‍💻 Updates 👨‍💻", url="https://t.me/daisyxupdates"
+                        "Updates", url="https://t.me/anie_news"
+                    ),
+                    InlineKeyboardButton(
+                        "Support", url="https://t.me/AnieRoSupport"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "Support Chat 🎙️", url="https://t.me/DaisySupport_Official"
+                        "Add me to your group.", url="t.me/Denvilmusicbot?startgroup=true"
                     )
                 ],
             ]
-        ),
-        disable_web_page_preview=True,
-    )
-
-
+        ))
+      
+@Client.on_callback_query(filters.regex("^start_cmds$"))
+async def start_callback(_, q: CallbackQuery):
+    user_id = q.from_user.id
+    await q.message.edit_text("Here you can find commands to use me.",
+    reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "Admin", url="https://telegra.ph/Starpaneltop-05-16"
+                    ),
+                    InlineKeyboardButton(
+                        "Users", url="https://telegra.ph/Starpaneltop-05-16-2"
+                    ),
+                ],
+                [
+                    InlineKeyboardButton(
+                        "Close menu", callback_data="start_close"
+                    )
+                ],
+            ]
+        ))
+    await q.answer("Help menu opened.", show_alert=True)
+    return
+  
+@Client.on_callback_query(filters.regex("^start_close$"))
+async def close_callback(_, q: CallbackQuery):
+    user_id = q.from_user.id
+    await q.message.edit_text("**Menu closed. Send /start to start again.**")
+    await q.answer("Closed Menu.", show_alert=True)
+    return
+  
 @Client.on_message(filters.command("start") & ~filters.private & ~filters.channel)
 async def gstart(_, message: Message):
     await message.reply_text(
-        """**🔴 Music player is online**""",
+        "Hello, I'm Online ^_^",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "🎙️ Support Group 🎙️", url="https://t.me/daisysupport_Official"
+                        "How to use me?", callback_data="start_cmds"
                     )
                 ]
             ]
