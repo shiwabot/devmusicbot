@@ -15,15 +15,15 @@ async def start(_, message: Message):
                 ],
                 [
                     InlineKeyboardButton(
-                        "Updates", url="https://t.me/anie_news"
+                        "Updates", url="https://t.me/Denvil_bots"
                     ),
                     InlineKeyboardButton(
-                        "Support", url="https://t.me/AnieRoSupport"
+                        "Support", url="https://t.me/MusicBotEnjoy_group"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "Add me to your group.", url="t.me/Denvilmusicbot?startgroup=true"
+                        "Add me to your group.", url="t.me/AnieMusic_bot?startgroup=true"
                     )
                 ],
             ]
